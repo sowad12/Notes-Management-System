@@ -1,0 +1,11 @@
+D:\Code\Insight_Task\Note Management System\Backend\Library\bin\Debug\net8.0\Library.deps.json
+D:\Code\Insight_Task\Note Management System\Backend\Library\bin\Debug\net8.0\Library.dll
+D:\Code\Insight_Task\Note Management System\Backend\Library\bin\Debug\net8.0\Library.pdb
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.AssemblyInfoInputs.cache
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.AssemblyInfo.cs
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.csproj.CoreCompileInputs.cache
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.dll
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\refint\Library.dll
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\Library.pdb
+D:\Code\Insight_Task\Note Management System\Backend\Library\obj\Debug\net8.0\ref\Library.dll

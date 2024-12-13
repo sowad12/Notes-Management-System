@@ -1,0 +1,57 @@
+<form  [formGroup]="registerFrom" (ngSubmit)="register()" autocomplete="off">
+  <h2 class="text-center text-primary">Register</h2>
+  <hr />
+
+  <div class="form-group">
+    <input type="text" formControlName="name" placeholder="Name" class="form-control" 
+    [class.is-invalid]="submitted && registerFrom.get('name')?.errors "/>
+    <span class="text-danger" *ngIf="submitted && registerFrom.get('name')?.hasError('required')">
+     Name is required
+    </span>
+    <span class="text-danger" *ngIf="submitted && registerFrom.get('name')?.hasError('minlength') ||registerFrom.get('confirmPassword')?.hasError('maxlength') ">
+     Confirm Password must be at least 5 and maximum 15 characters
+   </span>
+  
+  </div>
+
+
+  <div class="form-group">
+    <input type="email" formControlName="email" placeholder="Email" class="form-control" 
+    [class.is-invalid]="submitted && registerFrom.get('email')?.errors "/>    
+
+    <span class="text-danger" *ngIf="submitted && registerFrom.get('email')?.hasError('required')">
+      Email is required
+   </span>
+   <span class="text-danger" *ngIf="submitted && registerFrom.get('email')?.hasError('email') ">
+      please provide valid email
+  </span>
+
+</div>
+    <div class="form-group">
+      <input type="password" formControlName="password" placeholder="Password" class="form-control" 
+      [class.is-invalid]="submitted && registerFrom.get('password')?.errors "/>
+      <span class="text-danger" *ngIf="submitted && registerFrom.get('password')?.hasError('required')">
+        password is required
+      </span>
+      <span class="text-danger" *ngIf="submitted && registerFrom.get('password')?.hasError('minlength') ||registerFrom.get('password')?.hasError('maxlength') ">
+        Password must be at least 5 and maximum 15 characters
+     </span>
+  </div>
+  
+  <div class="form-group">
+    <input type="date" formControlName="birthDate" placeholder="Birth Date" class="form-control" 
+      [class.is-invalid]="submitted && registerFrom.get('birthDate')?.errors" />
+    <span class="text-danger" *ngIf="submitted && registerFrom.get('birthDate')?.hasError('required')">
+      Birth date is required
+    </span>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="submit">Register</button>
+    <button class="btn btn-danger mr-2" (click)="cancel()" type="button">Cancel</button>
+  </div> 
+
+   <div class="form-group text-center">
+    <p>Already have an account? <a routerLink="/login" class="text-primary">Login here</a></p>
+  </div>
+</form>

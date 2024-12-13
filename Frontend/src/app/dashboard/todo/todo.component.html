@@ -1,0 +1,80 @@
+<div class="note-section">
+    <div class="note-header">
+      <h3>Todos</h3>
+      <button class="btn btn-primary" (click)="openModal(template)">Create</button>
+    </div>
+    <div class="filter">
+      <label for="todo-filter">Filter by:</label>
+      <select id="todo-filter" (change)="filterTodos($event)">
+        <option value="All">All</option>
+        <option value="Today">Today</option>
+        <option value="Week">This Week</option>
+        <option value="Month">This Month</option>
+      </select>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Note</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let todo of Todos" >
+            <td>{{ todo.noteText }}</td>
+            <td>{{ todo.inputDate | date:'short' }}</td>
+            <td><span [ngStyle]="{ backgroundColor: todo.isComplete ? 'lightgreen' : 'lightcoral' }">{{ todo.isComplete ? 'Complete' : 'Incomplete' }}</span></td>
+            <td><button type="button" class="btn btn-danger"(click)="DeleteTodo(todo.id)">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+
+  
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add New Todo</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="todoForm" (ngSubmit)="submitTodo()">
+        <div class="mb-3">
+          <label for="note" class="form-label">Note</label>
+          <input type="text"  id="note" class="form-control" formControlName="note" required/>
+          <div *ngIf="todoForm.controls['note'].invalid && todoForm.controls['note'].touched" class="text-danger">     
+            <div *ngIf="todoForm.controls['note'].errors?.['required']">
+              Note is required.
+            </div>   
+            <div *ngIf="todoForm.controls['note'].errors?.['maxlength']">
+              Note cannot exceed 100 characters.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="dueDate" class="form-label">Due Date</label>
+          <input type="datetime-local"  id="inputDate" class="form-control" formControlName="inputDate" required/>      
+          <div *ngIf="todoForm.controls['inputDate'].invalid && todoForm.controls['inputDate'].touched" class="text-danger">
+            Due date is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="isComplete" class="form-label">Is Complete</label>
+          <input type="checkbox"  id="isComplete"  formControlName="isComplete" />  
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary me-2" (click)="closeModal()">Close</button>
+          <button type="submit" class="btn btn-success" [disabled]="todoForm.invalid">Save</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
+
+

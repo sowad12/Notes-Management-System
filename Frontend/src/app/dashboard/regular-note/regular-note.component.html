@@ -1,0 +1,54 @@
+<div class="note-section">
+    <div class="note-header">
+      <h3>Regular Notes</h3>
+      <button class="btn btn-primary" (click)="openModal(template)">Create</button>
+    </div>
+  
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Note</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let val of RegularNotes" >
+            <td>{{ val.noteText }}</td>   
+            <td><button type="button" class="btn btn-danger"(click)="DeleteRegular(val.id)">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  
+
+  <!-- modal -->
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add New Regular Note</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="regularForm" (ngSubmit)="submitRegular()">
+        <div class="mb-3">
+          <label for="note" class="form-label">Note</label>
+          <input type="text"  id="note" class="form-control" formControlName="note" required/>
+          <div *ngIf="regularForm.controls['note'].invalid && regularForm.controls['note'].touched" class="text-danger">     
+            <div *ngIf="regularForm.controls['note'].errors?.['required']">
+              Note is required.
+            </div>   
+            <div *ngIf="regularForm.controls['note'].errors?.['maxlength']">
+              Note cannot exceed 100 characters.
+            </div>
+          </div>
+        </div>
+        
+     
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary me-2" (click)="closeModal()">Close</button>
+          <button type="submit" class="btn btn-success" [disabled]="regularForm.invalid">Save</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>

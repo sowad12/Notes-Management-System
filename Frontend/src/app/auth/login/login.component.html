@@ -1,0 +1,35 @@
+<form  [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+    <h2 class="text-center text-primary">Login</h2>
+    <hr />
+    <div class="form-group">
+      <input type="email" formControlName="email" placeholder="Email" class="form-control" 
+      [class.is-invalid]="submitted && loginForm.get('email')?.errors "/>    
+  
+      <span class="text-danger" *ngIf="submitted && loginForm.get('email')?.hasError('required')">
+        Email is required
+     </span>
+     <span class="text-danger" *ngIf="submitted && loginForm.get('email')?.hasError('email') ">
+        please provide valid email
+    </span>
+  
+  </div>
+      <div class="form-group">
+        <input type="password" formControlName="password" placeholder="Password" class="form-control" 
+        [class.is-invalid]="submitted && loginForm.get('password')?.errors "/>
+        <span class="text-danger" *ngIf="submitted && loginForm.get('password')?.hasError('required')">
+          password is required
+        </span>
+        <span class="text-danger" *ngIf="submitted && loginForm.get('password')?.hasError('minlength') ||loginForm.get('password')?.hasError('maxlength') ">
+          Password must be at least 5 and maximum 15 characters
+       </span>
+    </div>
+     
+    <div class="form-group text-center">
+      <button class="btn btn-success mr-2" type="submit">Login</button>
+      <button class="btn btn-danger mr-2" (click)="cancel()" type="button">Cancel</button>
+    </div> 
+    <div class="text-center">
+        <p>Don't have an account? <a routerLink="/register" class="text-primary">Register here</a></p>
+      </div>
+  </form>
+  

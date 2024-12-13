@@ -1,0 +1,53 @@
+<div class="note-section">
+  <div class="note-header">
+    <h3>Bookmarks</h3>
+    <button class="btn btn-primary" (click)="openModal(template)">Create</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let val of Bookmarks">
+        <td><a [href]="val.url" target="_blank">{{ val.url }}</a></td>
+        <td><button type="button" class="btn btn-danger" (click)="DeleteBookMark(val.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- modal -->
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add New Bookmark</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="bookmarkForm" (ngSubmit)="submitBookMark()">
+      <div class="mb-3">
+        <label for="url" class="form-label">URL</label>
+        <input type="text" id="url" class="form-control" formControlName="url" required />
+        <div *ngIf="bookmarkForm.controls['url'].touched">        
+          <div *ngIf="bookmarkForm.controls['url'].hasError('required')" class="text-danger">
+            URL is required.
+          </div>  
+          <div *ngIf="bookmarkForm.controls['url'].hasError('invalidUrl')" class="text-danger">
+            Please enter a valid URL (e.g., https://example.com).
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary me-2" (click)="closeModal()">Close</button>
+        <button type="submit" class="btn btn-success" [disabled]="bookmarkForm.invalid">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
