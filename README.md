@@ -17,7 +17,7 @@ In this project, a backend API built with .NET 8.0 handles user authentication a
 ![note_6](https://github.com/user-attachments/assets/79fe55a4-1728-46c6-9026-ee374b9d1ee3)
 ![note_5](https://github.com/user-attachments/assets/af5152e9-2fc9-4297-a419-13bb9178e0cd)
 ![note_4](https://github.com/user-attachments/assets/cbcf716f-69c8-4c22-b0e3-4293ff9291df)
-![note_3](https://github.com/user-attachments/assets/020a0d99-def0-4912-85d5-2d37ca93330f)
+![image](https://github.com/user-attachments/assets/9da3446a-5245-40c2-b4a3-9d9c62cab073)
 ![note_2](https://github.com/user-attachments/assets/cd513b6f-44eb-4a57-9e76-bcc7d717fb69)
 ![note_1](https://github.com/user-attachments/assets/d425a0f8-cc3a-4ab8-9775-d04a8cbd21de)
 
