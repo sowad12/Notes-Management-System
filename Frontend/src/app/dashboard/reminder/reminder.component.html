@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="reminder" class="form-label">Due Date</label>
+          <label for="reminder" class="form-label">Reminder</label>
           <input type="datetime-local"  id="inputDate" class="form-control" formControlName="inputDate" required/>      
           <div *ngIf="reminderForm.controls['inputDate'].invalid && reminderForm.controls['inputDate'].touched" class="text-danger">
             Due date is required.
