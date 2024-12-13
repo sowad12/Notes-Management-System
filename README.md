@@ -8,9 +8,9 @@
 .NET 8.0 and Angular 16
 
 # Short_brief
-```bash
+
 In this project, a backend API built with .NET 8.0 handles user authentication and note management, while the frontend is developed using Angular 16.0 for a seamless user interface. Users can sign up, log in, and create different types of notes: regular, reminder, task, and bookmark. The backend API is secured with token-based authentication, ensuring that only authenticated users can access restricted routes. For note storage, the application uses the file system to save the notes locally. Upon login, users are redirected to the dashboard, where they can view and manage their notes based on specific time frames.
-```
+
 
 # Images
 ![image](https://github.com/user-attachments/assets/e5ed664f-0c37-4205-b611-35600793f755)
