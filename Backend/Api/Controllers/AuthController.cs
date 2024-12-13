@@ -32,11 +32,11 @@ namespace Api.Controllers
             return Ok(res);
 
         }
-        [HttpPost("logout")]
-        public async Task<IActionResult>  Logout()
-        {              
-            return Ok("Logged out successfully.");
-        }
+        //[HttpPost("logout")]
+        //public async Task<IActionResult>  Logout()
+        //{              
+        //    return Ok("Logged out successfully.");
+        //}
 
     }
 }
